@@ -1,0 +1,21 @@
+:host{
+    display: block;
+    background: linear-gradient(to bottom, #104a86, #61cbee);
+    width: 100%;
+    height: 100vh;
+
+    header{
+        display: flex;
+        height: 10%;
+        font-family: 'Borel';
+        font-size: xx-large;
+        padding-bottom: 1px;
+    }
+
+    .line{
+        margin-top:1%;
+        background-color: azure;
+        width: 100%;
+        height: 1px;
+    }
+}
