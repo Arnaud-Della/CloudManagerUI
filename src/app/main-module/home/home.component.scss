@@ -1,0 +1,50 @@
+:host{
+    display: block;
+    // background: linear-gradient(to bottom, #104a86, #61cbee);
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    .title{
+        font-family: "Borel";
+        font-size: xx-large;
+        position: relative;
+        top:16%;
+        left: 1%;
+    }
+    .example-container{
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    .example-sidenav {
+        background-color: #3F51B5;
+        padding: 20px;
+        border-right:none;
+    }
+    .example-sidenav-content{
+        display: block;
+        background: linear-gradient(to bottom, #104a86, #61cbee);
+        width: 100%;
+        height: 100%;
+    }
+    ul{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        span {
+            color: white;
+            font-family: "Borel";
+            font-size: large;
+            position: relative;
+            top: -0.5rem;
+        }
+    }
+
+    nb-icon {
+        font-size: 1.5rem;
+        line-height: 2;
+        width: 1.5em;
+        height: 1.5em;
+        color: white;
+    }
+}

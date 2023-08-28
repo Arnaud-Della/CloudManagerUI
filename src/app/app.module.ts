@@ -8,14 +8,13 @@ import { NbThemeModule, NbLayoutModule, NbCardModule, NbSidebarModule, NbButtonM
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { AuthComponent } from './auth/auth.component';
 import { MatCardModule } from '@angular/material/card';
-import { HomeComponent } from './home/home.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { MainModuleModule } from './main-module/main-module.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    HomeComponent,
     NotfoundComponent
   ],
   imports: [
@@ -23,12 +22,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'default' }),
-    NbLayoutModule,
-    NbEvaIconsModule,
-    MatCardModule,
-    NbCardModule,
-    NbSidebarModule.forRoot(),
-    NbButtonModule
+    MainModuleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
