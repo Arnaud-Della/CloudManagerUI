@@ -10,6 +10,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { CloudComponent } from './cloud/cloud.component';
 import { SettingsComponent } from './settings/settings.component';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SettingsComponent } from './settings/settings.component';
     NbEvaIconsModule,
     NbIconModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class MainModuleModule { }
