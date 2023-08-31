@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ export class AuthComponent {
   constructor(private authService:AuthService,private router:Router) { }
 
   public Login(id:HTMLInputElement,mdp:HTMLInputElement){
-    this.authService.Login({identifiant:id.value,password:mdp.value}).subscribe(
+    this.authService.Login({identifiant:id.value,password:mdp.value}).then(
       ok => {
         this.errorConnexion = false;
         this.router.navigate(['/home']);
@@ -22,7 +22,7 @@ export class AuthComponent {
       ko => {
         this.errorConnexion = true;
       }
-    )
+    );
   }
 
 }

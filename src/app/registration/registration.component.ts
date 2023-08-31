@@ -1,4 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -7,18 +9,27 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 })
 export class RegistrationComponent{
 
-  @ViewChild('Identifiant') Identifiant!: ElementRef;
-  @ViewChild('MDP') MDP!: ElementRef;
-  @ViewChild('ConfimationMDP') ConfimationMDP!: ElementRef;
+  @ViewChild("error")error!:ElementRef;
 
-  public Validation(){
-    if (this.Identifiant.nativeElement.value != "" && this.MDP.nativeElement.value != ""
-        && (this.ConfimationMDP.nativeElement.value == this.MDP.nativeElement.value)){
+  constructor(private authService:AuthService,private router:Router){}
 
-      // valide
+  public Registration(Identifiant:HTMLInputElement,MDP:HTMLInputElement,ConfirmationMDP:HTMLInputElement){
+    
+    if (Identifiant.value != "" &&
+        MDP.value!= "" &&
+        MDP.value == ConfirmationMDP.value)
+    {
+      this.authService.Registration({identifiant:Identifiant.value,password:MDP.value}).then(
+        ok => {
+          this.router.navigate(['/auth'])
+        },
+        ko => {
+          this.error.nativeElement.innerHTML = "Une erreur est survenue";
+        }
+      );
     }
     else{
-      // ne valide pas
+      this.error.nativeElement.innerHTML = "Mot de passe different";
     }
   }
 }

@@ -12,11 +12,14 @@
         </div>
         <div class="coolinput">
             <label for="input" class="text">Confirmation mot de passe:</label>
-            <input #ConfimationMDP type="password" placeholder="Write here..." name="input" class="input">
+            <input #ConfirmationMDP type="password" placeholder="Write here..." name="input" class="input">
+        </div>
+        <div #error style="color: red;">
+
         </div>
     </div>
     <div class="fakefooter">
         <button type="button" routerLink="/auth" class="action" style="background-color: #d9534f;">Retour </button>
-        <button type="button" class="action" style="background-color: #5cb85c;">Valider </button>
+        <button type="button" (click)="Registration(Identifiant,MDP,ConfirmationMDP)" class="action" style="background-color: #5cb85c;">Valider </button>
     </div>
 </div>
