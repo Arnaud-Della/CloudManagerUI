@@ -11,6 +11,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { CloudComponent } from './cloud/cloud.component';
 import { SettingsComponent } from './settings/settings.component';
 import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {MatButtonModule} from '@angular/material/button';
     NbIconModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    MatListModule
   ]
 })
 export class MainModuleModule { }

@@ -1,0 +1,22 @@
+:host{
+    display: flex;
+    justify-content: center;
+    mat-card{
+        margin-top: 2%;
+        width: 90%;
+    }
+    nb-icon{
+        width: 2rem;
+        color: #ff3d71;
+    }
+    ::ng-deep{
+        mat-list-item{
+            span{
+                justify-content: space-between !important;
+            }
+        }
+        .mat-flat-button.mat-primary{
+            background-color: #00d68f !important;
+        }
+    }
+}

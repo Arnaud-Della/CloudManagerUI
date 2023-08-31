@@ -10,12 +10,14 @@ import { AuthComponent } from './auth/auth.component';
 import { MatCardModule } from '@angular/material/card';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { MainModuleModule } from './main-module/main-module.module';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
