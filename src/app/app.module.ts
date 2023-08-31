@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { MainModuleModule } from './main-module/main-module.module';
 import { RegistrationComponent } from './registration/registration.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RegistrationComponent } from './registration/registration.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'default' }),
-    MainModuleModule
+    MainModuleModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

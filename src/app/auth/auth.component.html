@@ -3,16 +3,19 @@
     <div class="info">
         <p class="title">Connectez vous pour accèder a votre Cloud !</p>
         <div class="coolinput">
-            <label for="input" class="text">Identifiant:</label>
-            <input type="text" placeholder="Write here..." name="input" class="input">
+            <label for="id" class="text">Identifiant:</label>
+            <input #Id type="text" placeholder="Write here..." name="id" class="input">
         </div>
         <div class="coolinput">
-            <label for="input" class="text">Mot de passe:</label>
-            <input type="password" placeholder="Write here..." name="input" class="input">
+            <label for="mdp" class="text">Mot de passe:</label>
+            <input #Mdp type="password" placeholder="Write here..." name="mdp" class="input">
+        </div>
+        <div *ngIf="errorConnexion" style="color:red;">
+            Mot de passe ou identifiant invalide ...
         </div>
     </div>
     <div class="fakefooter">
-        <button type="button" class="action" style="background-color: #d9534f;">Inscription </button>
-        <button type="button" class="action" style="background-color: #5cb85c;">Connection </button>
+        <button type="button" routerLink="/registration" class="action" style="background-color: #d9534f;">Inscription </button>
+        <button type="button" (click)="Login(#Id,#Mdp)" class="action" style="background-color: #5cb85c;">Connection </button>
     </div>
 </div>
