@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment.prod';
 export class AuthService {
 
   tokenAccess:TokenAccess = {token:undefined,expiresIn:undefined};
-  userProfile:User = {identifiant:undefined,password:undefined};
+  userProfile:User = {identifiant:"Arnaud"};
 
   constructor(private http:HttpClient) { }
 
@@ -37,7 +37,7 @@ export class AuthService {
 export interface User
 {
   identifiant:string | undefined,
-  password:string | undefined,
+  password?:string|undefined
 }
 
 export interface TokenAccess

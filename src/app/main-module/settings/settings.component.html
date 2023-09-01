@@ -3,7 +3,7 @@
         <mat-card-title>Gerer les comptes google</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <ng-container *ngIf="1 == 1; else elseBlock">
+        <ng-container *ngIf="this.CloudZoneList.length == 0; else elseBlock">
             <mat-card-subtitle>
                 Configuration de la zone principale
             </mat-card-subtitle>
@@ -32,15 +32,18 @@
             <button *ngIf="this.fileContent && email.value" (click)="AddFirstZone(email.value)" mat-flat-button color="primary" style="margin-top: 2%;">Valider</button>
         </ng-container>
         <ng-template #elseBlock>
-            <p>Ceci est affiché lorsque la condition est fausse.</p>
+            <!-- <p>Ceci est affiché lorsque la condition est fausse.</p> -->
+            Ajouter une nouvelle Zone de Cloud
+            <button mat-mini-fab (click)="AddSecondZone()" color="accent" aria-label="Example icon button with a plus one icon">
+                <mat-icon>plus_one</mat-icon>
+            </button>
+            <mat-list role="list">
+                <mat-list-item *ngFor="let zone of CloudZoneList;let index = index;" role="listitem">
+                    {{zone.Email}}
+                    <span *ngIf="index == 0">Compte principale (FirstZone)</span>
+                    <nb-icon *ngIf="index>0" icon="trash-2-outline"></nb-icon>
+                </mat-list-item>
+            </mat-list>
         </ng-template>
-        <!-- <mat-list role="list">
-            <mat-list-item role="listitem">
-                Iteam 1
-                <nb-icon icon="trash-2-outline"></nb-icon>
-            </mat-list-item>
-            <mat-list-item role="listitem">Item 2</mat-list-item>
-            <mat-list-item role="listitem">Item 3</mat-list-item>
-        </mat-list> -->
     </mat-card-content>
 </mat-card>
