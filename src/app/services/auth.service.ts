@@ -9,13 +9,23 @@ import { environment } from 'src/environments/environment.prod';
 export class AuthService {
 
   tokenAccess:TokenAccess = {token:undefined,expiresIn:undefined};
-  //userProfile:User = {identifiant:undefined,password:undefined};
+  userProfile:User = {identifiant:undefined,password:undefined};
 
   constructor(private http:HttpClient) { }
 
   public async Login(user:User){
-    this.tokenAccess = await firstValueFrom(this.http.post<TokenAccess>(environment.endpoint+"/auth/sign-in",user));
-    return this.tokenAccess;
+    return new Promise( (resolve, rejects) => {
+      firstValueFrom(this.http.post<TokenAccess>(environment.endpoint+"/auth/sign-in",user)).then(
+        ok => {
+          this.userProfile = user;
+          this.tokenAccess = ok;
+          resolve(ok);
+        },
+        ko => {
+          rejects();
+        }
+      );
+    });
   }
 
   public async Registration(user:User){

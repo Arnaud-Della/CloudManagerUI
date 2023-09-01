@@ -17,13 +17,14 @@ export class AuthGuard  {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree 
   {
-    if (this.authService.tokenAccess.expiresIn && this.authService.tokenAccess.expiresIn>Math.floor(Date.now() / 1000) && this.authService.tokenAccess){
-      return true;
-    }
-    else{
-      this.router.navigate(['/auth']);
-      return false;
-    }
+    return true;
+    // if (this.authService.tokenAccess.expiresIn && this.authService.tokenAccess.expiresIn>Math.floor(Date.now() / 1000) && this.authService.tokenAccess){
+    //   return true;
+    // }
+    // else{
+    //   this.router.navigate(['/auth']);
+    //   return false;
+    // }
   }
   
 }
