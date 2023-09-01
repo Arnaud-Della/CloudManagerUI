@@ -6,13 +6,15 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements AfterViewInit{
+export class HomeComponent implements AfterViewInit,OnInit{
 
   showFiller = false;
   @ViewChild("drawer")drawer: any;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
-    this.router.navigate([{ outlets: { aux: ['cloud'] } }],{ relativeTo: this.route.parent })
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.navigate('cloud');
   }
 
   ngAfterViewInit(): void {
@@ -22,6 +24,6 @@ export class HomeComponent implements AfterViewInit{
   }
     
   public navigate(path: any) {
-    this.router.navigate([{ outlets: { aux: [path] } }],{ relativeTo: this.route.parent })
+    this.router.navigate([{ outlets: { aux: [path] } }],{ relativeTo: this.route.parent,skipLocationChange: true })
   }
 }
