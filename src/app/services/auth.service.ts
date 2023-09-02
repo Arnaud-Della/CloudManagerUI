@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment.prod';
 export class AuthService {
 
   tokenAccess:TokenAccess | undefined = undefined;
-  userProfile:User = {identifiant:"Arnaud"};
+  userProfile:User = {identifiant:undefined};
 
   constructor(private http:HttpClient, private cookieService: CookieService) { 
   }
@@ -43,6 +43,12 @@ export class AuthService {
     return this.tokenAccess;
   }
 
+  public resetCookies(){
+    this.tokenAccess = undefined;
+    this.userProfile = {identifiant:undefined};
+    this.cookieService.set('Id', String(this.userProfile.identifiant));
+    this.cookieService.set('Token', JSON.stringify(this.tokenAccess));
+  }
 }
 
 export interface User

@@ -32,6 +32,7 @@ export class StandartInterceptor implements HttpInterceptor {
     }
 
     // Si aucun jeton d'accès n'est disponible, poursuivre simplement avec la requête d'origine
+    this.authService.resetCookies();
     this.router.navigate(['/auth']);
     return next.handle(request);
   }
