@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CloudZoneSchema } from '../interfaces/interfaces';
 import { Observable, firstValueFrom } from 'rxjs';
@@ -26,5 +26,13 @@ export class ZoneCloudService {
 
   public GetAllCloudZone(user:User):Observable<CloudZoneSchema[]>{
     return this.http.post<CloudZoneSchema[]>(environment.endpoint+"/cloud/getAll",user);
+  }
+
+  public DeleteCloudZone(email:string){
+    const optionsHttp = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      body: {email:email}, // Les données que vous souhaitez envoyer dans le corps de la requête
+    };
+    return firstValueFrom(this.http.delete<CloudZoneSchema>(environment.endpoint+"/cloud/DeleteCloudZone",optionsHttp));
   }
 }

@@ -14,7 +14,12 @@ export class HomeComponent implements AfterViewInit,OnInit{
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.navigate('cloud');
+    if (this.router.parseUrl(this.router.url).queryParams['addcloud'] == "success"){
+      this.navigate('setting');
+    }
+    else{
+      this.navigate('cloud');
+    }
   }
 
   ngAfterViewInit(): void {

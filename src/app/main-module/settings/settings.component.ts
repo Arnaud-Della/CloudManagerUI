@@ -58,4 +58,11 @@ export class SettingsComponent  implements OnInit,OnDestroy {
     this.zoneCloudService.AddSecondZone();
   }
 
+  DeleteCloudZone(index:number){
+    this.zoneCloudService.DeleteCloudZone(this.CloudZoneList[index].Email)
+    .then( () => {
+      this.CloudZoneList.splice(index,1);
+    })
+  }
+
 }

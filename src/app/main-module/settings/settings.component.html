@@ -41,7 +41,7 @@
                 <mat-list-item *ngFor="let zone of CloudZoneList;let index = index;" role="listitem">
                     {{zone.Email}}
                     <span *ngIf="index == 0">Compte principale (FirstZone)</span>
-                    <nb-icon *ngIf="index>0" icon="trash-2-outline"></nb-icon>
+                    <nb-icon *ngIf="index>0" icon="trash-2-outline" (click)="DeleteCloudZone(index)"></nb-icon>
                 </mat-list-item>
             </mat-list>
         </ng-template>
