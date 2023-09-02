@@ -17,14 +17,15 @@ export class AuthGuard  {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree 
   {
-    return true;
-    // if (this.authService.tokenAccess.expiresIn && this.authService.tokenAccess.expiresIn>Math.floor(Date.now() / 1000) && this.authService.tokenAccess){
-    //   return true;
-    // }
-    // else{
-    //   this.router.navigate(['/auth']);
-    //   return false;
-    // }
+    const accessToken = this.authService.getTokenAccess()?.token;
+    const accessTokenExpire = this.authService.getTokenAccess()?.expiresIn;
+    // Vérifier si un jeton d'accès est disponible
+    if (accessToken && accessTokenExpire && accessTokenExpire>Math.floor(Date.now() / 1000)) {
+      return true;
+    }
+    this.router.navigate(['/auth']);
+    return false;
+    
   }
   
 }

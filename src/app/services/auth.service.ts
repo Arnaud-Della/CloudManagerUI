@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { firstValueFrom } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 
@@ -8,17 +9,20 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class AuthService {
 
-  tokenAccess:TokenAccess = {token:undefined,expiresIn:undefined};
+  tokenAccess:TokenAccess | undefined = undefined;
   userProfile:User = {identifiant:"Arnaud"};
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private cookieService: CookieService) { 
+  }
 
   public async Login(user:User){
     return new Promise( (resolve, rejects) => {
       firstValueFrom(this.http.post<TokenAccess>(environment.endpoint+"/auth/sign-in",user)).then(
         ok => {
-          this.userProfile = user;
+          this.userProfile.identifiant = user.identifiant;
           this.tokenAccess = ok;
+          this.cookieService.set('Id', String(user.identifiant));
+          this.cookieService.set('Token', JSON.stringify(ok));
           resolve(ok);
         },
         ko => {
@@ -30,6 +34,13 @@ export class AuthService {
 
   public async Registration(user:User){
     return await firstValueFrom(this.http.post<any>(environment.endpoint+"/auth/sign-up",user));
+  }
+
+  public getTokenAccess(){
+    if (!this.tokenAccess && this.cookieService.get('Token')){
+      this.tokenAccess = JSON.parse(this.cookieService.get('Token'));
+    }
+    return this.tokenAccess;
   }
 
 }
