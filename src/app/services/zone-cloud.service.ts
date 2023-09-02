@@ -18,7 +18,7 @@ export class ZoneCloudService {
   }
 
   public AddSecondZone(){
-    firstValueFrom(this.http.get<any>(environment.endpoint+"/cloud/drive-connection/"+this.authService.userProfile.identifiant))
+    firstValueFrom(this.http.get<any>(environment.endpoint+"/cloud/drive-connection"))
     .then( (res) => {
       window.location.href = res.uri;
     });
