@@ -1,0 +1,13 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .img{
+        width: 10rem;
+    }
+    .filename{
+        margin-top: 1%;
+        font-family: Rasa;
+        font-size:medium
+    }
+}

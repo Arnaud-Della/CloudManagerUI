@@ -18,6 +18,7 @@ export class StandartInterceptor implements HttpInterceptor {
     // Récupérer le jeton d'accès depuis le stockage (localStorage, sessionStorage, etc.)
     const accessToken = this.authService.getTokenAccess()?.token;
     const accessTokenExpire = this.authService.getTokenAccess()?.expiresIn;
+
     // Vérifier si un jeton d'accès est disponible
     if (accessToken && accessTokenExpire && accessTokenExpire>Math.floor(Date.now() / 1000)) {
       // Cloner la requête et ajouter l'en-tête d'autorisation Bearer

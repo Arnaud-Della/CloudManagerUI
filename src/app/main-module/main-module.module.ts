@@ -16,6 +16,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
 import {MatInputModule} from '@angular/material/input';
+import { FileComponent } from './file/file.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {MatInputModule} from '@angular/material/input';
     HomeComponent,
     CloudComponent,
     SettingsComponent,
+    FileComponent,
   ],
   imports: [
     CommonModule,

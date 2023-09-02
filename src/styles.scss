@@ -15,3 +15,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Rasa'; // Choose a suitable name for the font family
+  src: url('/assets/fonts/Rasa.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

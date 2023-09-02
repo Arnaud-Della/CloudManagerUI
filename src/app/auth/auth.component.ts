@@ -18,8 +18,9 @@ export class AuthComponent {
       ok => {
         this.errorConnexion = false;
         this.router.navigate(['/home']);
-      },
-      ko => {
+      })
+    .catch(ko => {
+        console.log(ko)
         this.errorConnexion = true;
       }
     );

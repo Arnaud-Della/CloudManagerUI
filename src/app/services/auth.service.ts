@@ -26,7 +26,7 @@ export class AuthService {
           resolve(ok);
         },
         ko => {
-          rejects();
+          rejects(ko);
         }
       );
     });
@@ -37,7 +37,7 @@ export class AuthService {
   }
 
   public getTokenAccess(){
-    if (!this.tokenAccess && this.cookieService.get('Token')){
+    if (!this.tokenAccess && this.cookieService.get('Token') != "undefined"){
       this.tokenAccess = JSON.parse(this.cookieService.get('Token'));
     }
     return this.tokenAccess;
