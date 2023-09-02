@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FilesService } from 'src/app/services/files.service';
 
 @Component({
   selector: 'app-cloud',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CloudComponent implements OnInit {
 
-  constructor() { }
+  filesStackUI:any[] = [];
+
+  constructor(private filesService:FilesService) { }
 
   ngOnInit(): void {
+    this.filesService.getFiles("root")
+    .then((result:File) => {
+      this.filesStackUI.push(result);
+    })
   }
 
+  DisplayFiles(){
+    return this.filesStackUI[this.filesStackUI.length -1];
+  }
+
+}
+
+export interface File
+{
+  name:string,
+  id:string,
+  dir?:boolean
 }

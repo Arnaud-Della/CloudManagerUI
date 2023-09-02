@@ -19,39 +19,10 @@
 
     <mat-card-content class="card-files-content">
         <div class="grid-container">
-            <div class="grid-item">
-                <app-file></app-file>
+            <div *ngFor="let file of this.filesStackUI[this.filesStackUI.length -1];" class="grid-item">
+                <app-file [info]="file"></app-file>
             </div>
-            <div class="grid-item">
-                <app-file></app-file>
-            </div>
-            <div class="grid-item">
-                <app-file></app-file>
-            </div>
-            <div class="grid-item">
-                <app-file></app-file>
-            </div>
-            <div class="grid-item">
-                <app-file></app-file>
-            </div>
-            <div class="grid-item">
-                <app-file></app-file>
-            </div>
-            <div class="grid-item">
-                <app-file></app-file>
-            </div>
-            <div class="grid-item">
-                <app-file></app-file>
-            </div>
-            <div class="grid-item">
-                <app-file></app-file>
-            </div>
-            <div class="grid-item">
-                <app-file></app-file>
-            </div>
-            
-            <!-- Ajoutez plus de div.grid-item pour chaque photo -->
-          </div>
+        </div>
     </mat-card-content>
 
     <mat-card-footer>

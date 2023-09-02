@@ -1,6 +1,6 @@
-<img *ngIf="1==1" src=".\assets\fileimg.png" class="img">
-<!-- <img *ngIf="" src=".\assets\directoryimg.png" class="img">
-<img *ngIf="" src=".\assets\pdfimg.png" class="img">
-<img *ngIf="" src=".\assets\wordimg.png" class="img"> -->
-<span class="filename">nom du fichier</span>
+<img *ngIf="fileType == FileType.File" src=".\assets\fileimg.png" class="img">
+<img *ngIf="fileType == FileType.Dir" src=".\assets\directoryimg.png" class="img">
+<img *ngIf="fileType == FileType.Pdf" src=".\assets\pdfimg.png" class="img">
+<img *ngIf="fileType == FileType.Word" src=".\assets\wordimg.png" class="img">
+<span class="filename">{{Info.name}}</span>
 
